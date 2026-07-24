@@ -1,26 +1,24 @@
 services:
-  # Express Backend Service with Persistent Storage
+  # Express Backend Service (100% Free Plan)
   - type: web
     name: renewcred-backend
     env: docker
     dockerfilePath: ./Dockerfile
     dockerContext: ./backend
+    plan: free
     envVars:
       - key: PORT
         value: 5000
       - key: JWT_SECRET
         generateValue: true
-    disk:
-      name: cms-data
-      mountPath: /app/database
-      sizeGB: 1
 
-  # Next.js Frontend Service
+  # Next.js Frontend Service (100% Free Plan)
   - type: web
     name: renewcred-frontend
     env: docker
     dockerfilePath: ./Dockerfile
     dockerContext: ./frontend
+    plan: free
     envVars:
       - key: NEXT_PUBLIC_API_URL
         fromService:
